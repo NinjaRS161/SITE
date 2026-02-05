@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SQez — Минималистичная одежда</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header>
+    <div class="container header-inner">
+      <h1 class="logo">SQez</h1>
+
+      <nav>
+        <ul>
+          <li><a href="#">Главная</a></li>
+          <li><a href="#">Каталог</a></li>
+          <li><a href="#">О бренде</a></li>
+          <li><a href="#">Контакты</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-icons">
+        <span>🛒</span>
+        <span>👤</span>
+        <button class="burger" id="burger">☰</button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="#">Главная</a></li>
+        <li><a href="#">Каталог</a></li>
+        <li><a href="#">О бренде</a></li>
+        <li><a href="#">Контакты</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h2>Одежда, которая обнимает</h2>
+      <p>Минимализм и комфорт для жизни в городе</p>
+      <button class="btn">Смотреть коллекцию</button>
+    </div>
+  </section>
+
+  <!-- ================= CATEGORIES ================= -->
+  <section class="categories container">
+    <div class="categories-grid">
+      <div class="category-card">
+        <img src="https://source.unsplash.com/400x400/?minimal,clothing" alt="">
+        <h3>Верх</h3>
+        <button class="btn">Перейти</button>
+      </div>
+      <div class="category-card">
+        <img src="https://source.unsplash.com/400x400/?pants,minimal" alt="">
+        <h3>Низ</h3>
+        <button class="btn">Перейти</button>
+      </div>
+      <div class="category-card">
+        <img src="https://source.unsplash.com/400x400/?jacket,minimal" alt="">
+        <h3>Верхняя одежда</h3>
+        <button class="btn">Перейти</button>
+      </div>
+      <div class="category-card">
+        <img src="https://source.unsplash.com/400x400/?accessories,minimal" alt="">
+        <h3>Аксессуары</h3>
+        <button class="btn">Перейти</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRODUCTS ================= -->
+  <section class="products container">
+    <div class="products-grid">
+      <div class="product-card">
+        <img src="https://source.unsplash.com/400x400/?hoodie,minimal" alt="">
+        <h4>Худи Soft</h4>
+        <div class="price">6 900 ₽</div>
+        <button class="btn">В корзину</button>
+      </div>
+      <div class="product-card">
+        <img src="https://source.unsplash.com/400x400/?tshirt,minimal" alt="">
+        <h4>Футболка Base</h4>
+        <div class="price">3 200 ₽</div>
+        <button class="btn">В корзину</button>
+      </div>
+      <div class="product-card">
+        <img src="https://source.unsplash.com/400x400/?pants,minimal,clothes" alt="">
+        <h4>Брюки City</h4>
+        <div class="price">5 400 ₽</div>
+        <button class="btn">В корзину</button>
+      </div>
+      <div class="product-card">
+        <img src="https://source.unsplash.com/400x400/?jacket,minimal,clothes" alt="">
+        <h4>Куртка Flow</h4>
+        <div class="price">9 800 ₽</div>
+        <button class="btn">В корзину</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h3>SQez</h3>
+        <p>Минималистичная одежда для комфорта и свободы движения.</p>
+      </div>
+      <div>
+        <h3>Навигация</h3>
+        <ul>
+          <li>Каталог</li>
+          <li>О бренде</li>
+          <li>Контакты</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Контакты</h3>
+        <ul>
+          <li>info@sqez.ru</li>
+          <li>+7 (900) 000-00-00</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Соцсети</h3>
+        <div class="socials">
+          <span>📷</span>
+          <span>✈️</span>
+          <span>▶️</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= JS ================= -->
+  <script>
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    burger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>

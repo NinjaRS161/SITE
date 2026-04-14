@@ -2,7 +2,6 @@ services:
   - type: web
     runtime: static
     name: sqez-site
-    plan: free
     buildCommand: echo "Static site ready"
     staticPublishPath: .
 

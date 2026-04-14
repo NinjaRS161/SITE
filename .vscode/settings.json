@@ -1,0 +1,6 @@
+{
+    "Codegeex.GenerationPreference": "automatic",
+    "Codegeex.Chat.LanguagePreference": "中文",
+    "Codegeex.CommitMessageStyle": "Auto",
+    "Codegeex.CompletionDelay": 0.5
+}

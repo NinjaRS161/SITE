@@ -12,6 +12,7 @@ User.hasMany(Order)
 Order.belongsTo(User)
 
 Order.hasMany(OrderItem)
+OrderItem.belongsTo(Order)
 OrderItem.belongsTo(Product)
 
 module.exports = {

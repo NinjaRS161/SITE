@@ -20,6 +20,26 @@ const CART_STORAGE_KEY = 'sqez-cart-id'
 let activeCategory = ''
 let cart = { items: [], totalItems: 0, totalPrice: 0 }
 
+function wait(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
+function buildNetworkErrorMessage() {
+  return 'Не удалось связаться с сервером. Если сайт только что открылся на Render, подождите 30-60 секунд и попробуйте ещё раз.'
+}
+
+async function performFetch(url, options) {
+  try {
+    return await fetch(url, options)
+  } catch (error) {
+    if (error instanceof TypeError || error.name === 'AbortError') {
+      throw new Error(buildNetworkErrorMessage())
+    }
+
+    throw error
+  }
+}
+
 function formatPrice(value) {
   return new Intl.NumberFormat('ru-RU').format(value) + ' ₽'
 }
@@ -34,16 +54,38 @@ function getCartId() {
 }
 
 async function request(path, options = {}) {
-  const response = await fetch(API_BASE_URL + path, {
+  const requestOptions = {
     headers: {
       'Content-Type': 'application/json'
     },
     ...options
-  })
+  }
+
+  let response
+
+  try {
+    response = await performFetch(API_BASE_URL + path, requestOptions)
+  } catch (error) {
+    if ((options.method || 'GET') === 'GET') {
+      await wait(1200)
+      response = await performFetch(API_BASE_URL + path, requestOptions)
+    } else {
+      throw error
+    }
+  }
 
   if (!response.ok) {
     const payload = await response.json().catch(() => ({}))
     throw new Error(payload.message || 'Ошибка запроса')
+  }
+
+  if (response.status === 204) {
+    return null
+  }
+
+  const contentType = response.headers.get('content-type') || ''
+  if (!contentType.includes('application/json')) {
+    throw new Error('Сервер вернул неожиданный ответ. Попробуйте обновить страницу чуть позже.')
   }
 
   return response.json()

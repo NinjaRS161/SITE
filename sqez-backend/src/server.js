@@ -1,5 +1,5 @@
 require('dotenv').config()
-const app = require('./server')
+const app = require('./app')
 const { sequelize } = require('./models')
 
 const PORT = process.env.PORT || 5000
@@ -13,6 +13,7 @@ async function start() {
     )
   } catch (e) {
     console.error(e)
+    process.exit(1)
   }
 }
 

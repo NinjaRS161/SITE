@@ -40,6 +40,7 @@ a {
 button {
   border: none;
   cursor: pointer;
+  font: inherit;
 }
 
 .container {
@@ -73,6 +74,13 @@ header {
   font-weight: 700;
 }
 
+.icon-btn {
+  background: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
 nav {
   display: none;
 }
@@ -86,6 +94,7 @@ nav ul {
 .header-icons {
   display: flex;
   gap: 16px;
+  align-items: center;
 }
 
 .burger {
@@ -152,6 +161,19 @@ nav ul {
   margin-bottom: 24px;
 }
 
+.section-heading {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: 12px;
+  color: var(--color-accent);
+}
+
 /* =========================
    BUTTON
 ========================= */
@@ -160,6 +182,19 @@ nav ul {
   color: white;
   padding: 12px 24px;
   font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: .5;
 }
 
 /* =========================
@@ -181,7 +216,199 @@ nav ul {
 .product-card {
   background: var(--color-light);
   padding: 16px;
-  text-align: center;
+}
+
+.product-card {
+  display: grid;
+  gap: 16px;
+}
+
+.product-card img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.product-copy {
+  display: grid;
+  gap: 12px;
+}
+
+.product-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.product-meta span,
+.filter-chip,
+.stock-label {
+  font-size: 13px;
+}
+
+.product-meta span,
+.filter-chip {
+  padding: 6px 10px;
+  background: #f0ece7;
+  border-radius: 999px;
+}
+
+.product-bottom {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.category-filters {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  border: 1px solid transparent;
+  color: inherit;
+}
+
+.filter-chip.active {
+  background: var(--color-text);
+  color: white;
+}
+
+.status-message {
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  background: #f0ece7;
+}
+
+.hidden {
+  display: none;
+}
+
+.about {
+  margin-top: 80px;
+}
+
+.about-copy {
+  max-width: 720px;
+  line-height: 1.7;
+}
+
+.empty-cart {
+  color: #6c655d;
+}
+
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 26, 26, .35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+}
+
+.cart-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(420px, 100%);
+  height: 100vh;
+  background: var(--color-light);
+  box-shadow: -12px 0 40px rgba(0, 0, 0, .12);
+  transform: translateX(100%);
+  transition: transform .25s ease;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  z-index: 10;
+}
+
+.cart-drawer.open {
+  transform: translateX(0);
+}
+
+.cart-header,
+.cart-footer {
+  padding: 20px;
+  border-bottom: 1px solid #ece7e1;
+}
+
+.cart-footer {
+  border-top: 1px solid #ece7e1;
+  border-bottom: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.cart-items {
+  padding: 20px;
+  overflow: auto;
+  display: grid;
+  gap: 16px;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 88px 1fr auto;
+  gap: 14px;
+  align-items: start;
+}
+
+.cart-item img {
+  width: 88px;
+  height: 112px;
+  object-fit: cover;
+}
+
+.cart-item-copy {
+  display: grid;
+  gap: 8px;
+}
+
+.cart-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.cart-controls button {
+  background: #f0ece7;
+  padding: 6px 10px;
+}
+
+.link-btn {
+  background: none !important;
+  padding: 0 !important;
+  color: var(--color-accent);
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkout-form {
+  display: grid;
+  gap: 12px;
+}
+
+.checkout-form input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d8d1cb;
+}
+
+@media (max-width: 767px) {
+  .product-bottom,
+  .cart-item {
+    grid-template-columns: 1fr;
+  }
 }
 
 .price {

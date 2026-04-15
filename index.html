@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SQez — Минималистичная одежда</title>
-
+  <meta name="api-base-url" content="https://sqez-api.onrender.com/api" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,19 +18,19 @@
   <!--HEADER-->
   <header>
     <div class="container header-inner">
-      <h1 class="logo">SQez</h1>
+      <a class="logo" href="#home">SQez</a>
 
       <nav>
         <ul>
-          <li><a href="#">Главная</a></li>
-          <li><a href="#">Каталог</a></li>
-          <li><a href="#">О бренде</a></li>
-          <li><a href="#">Контакты</a></li>
+          <li><a href="#home">Главная</a></li>
+          <li><a href="#catalog">Каталог</a></li>
+          <li><a href="#about">О бренде</a></li>
+          <li><a href="#contacts">Контакты</a></li>
         </ul>
       </nav>
 
       <div class="header-icons">
-        <span>🛒</span>
+        <button class="icon-btn cart-toggle" id="cartToggle" type="button">🛒 <span id="cartCount">0</span></button>
         <span>👤</span>
         <button class="burger" id="burger">☰</button>
       </div>
@@ -39,81 +39,50 @@
     <!-- Mobile menu -->
     <div class="mobile-menu" id="mobileMenu">
       <ul>
-        <li><a href="#">Главная</a></li>
-        <li><a href="#">Каталог</a></li>
-        <li><a href="#">О бренде</a></li>
-        <li><a href="#">Контакты</a></li>
+        <li><a href="#home">Главная</a></li>
+        <li><a href="#catalog">Каталог</a></li>
+        <li><a href="#about">О бренде</a></li>
+        <li><a href="#contacts">Контакты</a></li>
       </ul>
     </div>
   </header>
 
   <!-- ================= HERO ================= -->
-  <section class="hero">
+  <section class="hero" id="home">
     <div class="container hero-content">
       <h2>Одежда, которая обнимает</h2>
       <p>Минимализм и комфорт для жизни в городе</p>
-      <button class="btn">Смотреть коллекцию</button>
+      <a class="btn" href="#catalog">Смотреть коллекцию</a>
     </div>
   </section>
 
   <!-- ================= CATEGORIES ================= -->
-  <section class="categories container">
-    <div class="categories-grid">
-      <div class="category-card">
-        <img src="https://source.unsplash.com/400x400/?minimal,clothing" alt="">
-        <h3>Верх</h3>
-        <button class="btn">Перейти</button>
-      </div>
-      <div class="category-card">
-        <img src="https://source.unsplash.com/400x400/?pants,minimal" alt="">
-        <h3>Низ</h3>
-        <button class="btn">Перейти</button>
-      </div>
-      <div class="category-card">
-        <img src="https://source.unsplash.com/400x400/?jacket,minimal" alt="">
-        <h3>Верхняя одежда</h3>
-        <button class="btn">Перейти</button>
-      </div>
-      <div class="category-card">
-        <img src="https://source.unsplash.com/400x400/?accessories,minimal" alt="">
-        <h3>Аксессуары</h3>
-        <button class="btn">Перейти</button>
-      </div>
+  <section class="categories container" id="catalog">
+    <div class="section-heading">
+      <p class="eyebrow">Категории</p>
+      <h2>Каталог, который живёт на API</h2>
+    </div>
+    <div class="category-filters" id="categoryFilters">
+      <button class="filter-chip active" type="button" data-category="">Все</button>
     </div>
   </section>
 
   <!-- ================= PRODUCTS ================= -->
   <section class="products container">
-    <div class="products-grid">
-      <div class="product-card">
-        <img src="https://source.unsplash.com/400x400/?hoodie,minimal" alt="">
-        <h4>Худи Soft</h4>
-        <div class="price">6 900 ₽</div>
-        <button class="btn">В корзину</button>
-      </div>
-      <div class="product-card">
-        <img src="https://source.unsplash.com/400x400/?tshirt,minimal" alt="">
-        <h4>Футболка Base</h4>
-        <div class="price">3 200 ₽</div>
-        <button class="btn">В корзину</button>
-      </div>
-      <div class="product-card">
-        <img src="https://source.unsplash.com/400x400/?pants,minimal,clothes" alt="">
-        <h4>Брюки City</h4>
-        <div class="price">5 400 ₽</div>
-        <button class="btn">В корзину</button>
-      </div>
-      <div class="product-card">
-        <img src="https://source.unsplash.com/400x400/?jacket,minimal,clothes" alt="">
-        <h4>Куртка Flow</h4>
-        <div class="price">9 800 ₽</div>
-        <button class="btn">В корзину</button>
-      </div>
+    <div class="status-message" id="catalogStatus">Загружаем каталог...</div>
+    <div class="products-grid" id="productsGrid"></div>
+  </section>
+
+  <section class="about container" id="about">
+    <div class="section-heading">
+      <p class="eyebrow">О бренде</p>
+      <h2>Тихая одежда для города</h2>
     </div>
+    <p class="about-copy">SQez сочетает базовые силуэты, мягкие ткани и спокойную палитру. Теперь каталог и корзина работают через backend: товары приходят из API, а корзина хранится на сервере.</p>
   </section>
 
   <!-- ================= FOOTER ================= -->
-  <footer>
+  <footer id="contacts">
     <div class="container footer-grid">
       <div>
         <h3>SQez</h3>
@@ -122,9 +91,9 @@
       <div>
         <h3>Навигация</h3>
         <ul>
-          <li>Каталог</li>
-          <li>О бренде</li>
-          <li>Контакты</li>
+          <li><a href="#catalog">Каталог</a></li>
+          <li><a href="#about">О бренде</a></li>
+          <li><a href="#contacts">Контакты</a></li>
         </ul>
       </div>
       <div>
@@ -145,16 +114,30 @@
     </div>
   </footer>
 
-  <!-- ================= JS ================= -->
-  <script>
-    const burger = document.getElementById('burger');
-    const mobileMenu = document.getElementById('mobileMenu');
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <div>
+        <p class="eyebrow">Корзина</p>
+        <h3>Ваш заказ</h3>
+      </div>
+      <button class="icon-btn" id="closeCart" type="button">✕</button>
+    </div>
+    <div class="status-message hidden" id="cartStatus"></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Итого</span>
+        <strong id="cartTotal">0 ₽</strong>
+      </div>
+      <form class="checkout-form" id="checkoutForm">
+        <input id="customerName" name="customerName" type="text" placeholder="Ваше имя" required />
+        <input id="customerEmail" name="customerEmail" type="email" placeholder="Email" required />
+        <button class="btn" type="submit">Оформить заказ</button>
+      </form>
+    </div>
+  </aside>
 
-    burger.addEventListener('click', () => {
-      mobileMenu.classList.toggle('active');
-    });
-  </script>
-
+  <script src="main.js"></script>
 </body>
-</html>
 </html>

@@ -3,125 +3,240 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SQez — Минималистичная одежда</title>
+  <title>SQez — tactile minimal wear</title>
+  <meta name="description" content="SQez — премиальный минималистичный стор с живым каталогом, серверной корзиной и 3D-сценой в hero." />
   <meta name="api-base-url" content="https://sqez-api.onrender.com/api" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="#home">SQez</a>
 
-  <!--HEADER-->
-  <header>
-    <div class="container header-inner">
-      <a class="logo" href="#home">SQez</a>
+        <nav class="desktop-nav" aria-label="Основная навигация">
+          <ul>
+            <li><a href="#home">Главная</a></li>
+            <li><a href="#catalog">Каталог</a></li>
+            <li><a href="#story">История</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+          </ul>
+        </nav>
 
-      <nav>
+        <div class="header-actions">
+          <span class="api-pill" id="apiPill">API: connecting</span>
+          <button class="icon-btn cart-toggle" id="cartToggle" type="button" aria-label="Открыть корзину">
+            <span>Cart</span>
+            <span class="cart-badge" id="cartCount">0</span>
+          </button>
+          <button class="burger" id="burger" type="button" aria-label="Открыть меню">☰</button>
+        </div>
+      </div>
+
+      <div class="mobile-menu" id="mobileMenu">
         <ul>
           <li><a href="#home">Главная</a></li>
           <li><a href="#catalog">Каталог</a></li>
-          <li><a href="#about">О бренде</a></li>
-          <li><a href="#contacts">Контакты</a></li>
-        </ul>
-      </nav>
-
-      <div class="header-icons">
-        <button class="icon-btn cart-toggle" id="cartToggle" type="button">🛒 <span id="cartCount">0</span></button>
-        <span>👤</span>
-        <button class="burger" id="burger">☰</button>
-      </div>
-    </div>
-
-    <!-- Mobile menu -->
-    <div class="mobile-menu" id="mobileMenu">
-      <ul>
-        <li><a href="#home">Главная</a></li>
-        <li><a href="#catalog">Каталог</a></li>
-        <li><a href="#about">О бренде</a></li>
-        <li><a href="#contacts">Контакты</a></li>
-      </ul>
-    </div>
-  </header>
-
-  <!-- ================= HERO ================= -->
-  <section class="hero" id="home">
-    <div class="container hero-content">
-      <h2>Одежда, которая обнимает</h2>
-      <p>Минимализм и комфорт для жизни в городе</p>
-      <a class="btn" href="#catalog">Смотреть коллекцию</a>
-    </div>
-  </section>
-
-  <!-- ================= CATEGORIES ================= -->
-  <section class="categories container" id="catalog">
-    <div class="section-heading">
-      <p class="eyebrow">Категории</p>
-      <h2>Каталог, который живёт на API</h2>
-    </div>
-    <div class="category-filters" id="categoryFilters">
-      <button class="filter-chip active" type="button" data-category="">Все</button>
-    </div>
-  </section>
-
-  <!-- ================= PRODUCTS ================= -->
-  <section class="products container">
-    <div class="status-message" id="catalogStatus">Загружаем каталог...</div>
-    <div class="products-grid" id="productsGrid"></div>
-  </section>
-
-  <section class="about container" id="about">
-    <div class="section-heading">
-      <p class="eyebrow">О бренде</p>
-      <h2>Тихая одежда для города</h2>
-    </div>
-    <p class="about-copy">SQez сочетает базовые силуэты, мягкие ткани и спокойную палитру. Теперь каталог и корзина работают через backend: товары приходят из API, а корзина хранится на сервере.</p>
-  </section>
-
-  <!-- ================= FOOTER ================= -->
-  <footer id="contacts">
-    <div class="container footer-grid">
-      <div>
-        <h3>SQez</h3>
-        <p>Минималистичная одежда для комфорта и свободы движения.</p>
-      </div>
-      <div>
-        <h3>Навигация</h3>
-        <ul>
-          <li><a href="#catalog">Каталог</a></li>
-          <li><a href="#about">О бренде</a></li>
+          <li><a href="#story">История</a></li>
           <li><a href="#contacts">Контакты</a></li>
         </ul>
       </div>
-      <div>
-        <h3>Контакты</h3>
-        <ul>
-          <li>info@sqez.ru</li>
-          <li>+7 (900) 000-00-00</li>
-        </ul>
-      </div>
-      <div>
-        <h3>Соцсети</h3>
-        <div class="socials">
-          <span>📷</span>
-          <span>✈️</span>
-          <span>▶️</span>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">SQez / tactile minimal wear</p>
+            <h1>Минимализм с объёмом, мягкостью и живой 3D-подачей.</h1>
+            <p class="hero-lead">
+              Визуальное направление вдохновлено taste-skill: крупная типографика, спокойная роскошь,
+              воздух между блоками и осмысленное движение вместо шаблонного лендинга.
+            </p>
+
+            <div class="hero-cta">
+              <a class="btn" href="#catalog">Открыть каталог</a>
+              <button class="ghost-btn" id="heroCartButton" type="button">Посмотреть корзину</button>
+            </div>
+
+            <div class="hero-notes">
+              <div class="note-card">
+                <span class="note-label">Backend</span>
+                <strong>Render API + Postgres</strong>
+                <p>Каталог и корзина идут через живой сервер, а не через мок-данные.</p>
+              </div>
+              <div class="note-card">
+                <span class="note-label">3D scene</span>
+                <strong>Glass Knot Vortex</strong>
+                <p>В hero встроена публичная Spline-сцена из указанного референса.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal">
+            <div class="visual-stage">
+              <div class="visual-glow"></div>
+              <div class="spline-card">
+                <iframe
+                  class="spline-frame"
+                  src="https://app.spline.design/community/file/90d98893-bcd5-4c28-8338-d322ff5c3655"
+                  title="Glass Knot Vortex 3D scene"
+                  loading="lazy"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <a
+                class="spline-fallback"
+                href="https://app.spline.design/community/file/90d98893-bcd5-4c28-8338-d322ff5c3655"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Если 3D не загрузился, открыть сцену отдельно
+              </a>
+              <div class="floating-chip chip-top">soft geometry</div>
+              <div class="floating-chip chip-bottom">slow luxury motion</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="highlights container reveal">
+        <div class="highlights-bar">
+          <p>Editorial silhouettes</p>
+          <p>Server-side cart</p>
+          <p>Render deployed</p>
+          <p>Taste-driven layout</p>
+        </div>
+      </section>
+
+      <section class="collection-intro container reveal" id="catalog">
+        <div class="section-heading">
+          <p class="eyebrow">Collection</p>
+          <h2>Каталог, который выглядит как арт-дирекшн, но работает как магазин.</h2>
+        </div>
+        <div class="intro-grid">
+          <p class="intro-copy">
+            Каждая карточка тянется с API. Если Render спит или сеть отвечает не сразу,
+            интерфейс не разваливается: он показывает понятный статус и аккуратно восстанавливается.
+          </p>
+          <div class="intro-side">
+            <div class="metric-card">
+              <span>Live categories</span>
+              <strong id="categoryMetric">0</strong>
+            </div>
+            <div class="metric-card">
+              <span>Items in cart</span>
+              <strong id="cartMetric">0</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="categories container reveal">
+        <div class="category-filters" id="categoryFilters">
+          <button class="filter-chip active" type="button" data-category="">Все</button>
+        </div>
+      </section>
+
+      <section class="products container reveal">
+        <div class="status-message" id="catalogStatus">Загружаем каталог...</div>
+        <div class="products-grid" id="productsGrid"></div>
+      </section>
+
+      <section class="story container reveal" id="story">
+        <div class="story-grid">
+          <div class="story-copy">
+            <p class="eyebrow">Brand story</p>
+            <h2>Одежда для тишины внутри шумного города.</h2>
+            <p>
+              SQez строится вокруг мягких материалов, чистых линий и спокойной уверенности.
+              Мы оставили магазин функциональным, но дали ему атмосферу студийного фэшн-эдиториала
+              вместо стандартного каталога из четырёх колонок и случайного UI.
+            </p>
+          </div>
+          <div class="story-panel">
+            <article class="story-card">
+              <span>01</span>
+              <h3>Curated simplicity</h3>
+              <p>Крупные формы, редкий текст и чёткая иерархия без визуального шума.</p>
+            </article>
+            <article class="story-card">
+              <span>02</span>
+              <h3>System-backed</h3>
+              <p>Каталог, корзина и оформление заказа уже подключены к backend-части.</p>
+            </article>
+            <article class="story-card">
+              <span>03</span>
+              <h3>Motion with purpose</h3>
+              <p>Reveal-анимации, плавающие акценты и 3D-сцена работают на ощущение бренда.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="assurance container reveal">
+        <div class="assurance-card">
+          <div>
+            <p class="eyebrow">Service health</p>
+            <h2>Если backend уснул на free tier, storefront не ломается мгновенно.</h2>
+          </div>
+          <p>
+            Сайт повторяет GET-запросы, показывает внятные сообщения и умеет отображать аккуратный offline-state,
+            пока API просыпается на Render.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contacts">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a class="logo" href="#home">SQez</a>
+          <p>Минималистичный fashion-storefront с 3D-подачей, live API и серверной корзиной.</p>
+        </div>
+        <div>
+          <h3>Навигация</h3>
+          <ul>
+            <li><a href="#catalog">Каталог</a></li>
+            <li><a href="#story">История</a></li>
+            <li><a href="#contacts">Контакты</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Контакты</h3>
+          <ul>
+            <li><a href="mailto:info@sqez.ru">info@sqez.ru</a></li>
+            <li><a href="tel:+79000000000">+7 (900) 000-00-00</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Стек</h3>
+          <ul>
+            <li>Static Site on Render</li>
+            <li>Node API + PostgreSQL</li>
+            <li>Spline embed + premium CSS motion</li>
+          </ul>
         </div>
       </div>
-    </div>
-  </footer>
+      <div class="container footer-bottom">
+        <span>Designed with a taste-skill inspired direction.</span>
+        <span id="footerYear"></span>
+      </div>
+    </footer>
+  </div>
 
   <div class="cart-overlay" id="cartOverlay"></div>
-  <aside class="cart-drawer" id="cartDrawer">
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Корзина">
     <div class="cart-header">
       <div>
-        <p class="eyebrow">Корзина</p>
+        <p class="eyebrow">Cart</p>
         <h3>Ваш заказ</h3>
       </div>
-      <button class="icon-btn" id="closeCart" type="button">✕</button>
+      <button class="icon-btn close-button" id="closeCart" type="button" aria-label="Закрыть корзину">✕</button>
     </div>
     <div class="status-message hidden" id="cartStatus"></div>
     <div class="cart-items" id="cartItems"></div>
@@ -137,6 +252,8 @@
       </form>
     </div>
   </aside>
+
+  <div class="toast" id="orderToast" role="status" aria-live="polite"></div>
 
   <script src="main.js"></script>
 </body>
